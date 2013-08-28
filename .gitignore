@@ -1,0 +1,7 @@
+flask
+venv
+virtualenv.py
+*.pyc
+tmp
+db_repository
+*.db
