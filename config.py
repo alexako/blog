@@ -7,7 +7,7 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 
 CSRF_ENABLED = True
-SECRET_KEY = 'k1udgedit'
+SECRET_KEY = 'password'
 
 OPENID_PROVIDERS = [
     {'name': 'Google', 'url': 'https://www.google.com/accounts/o8/id'},
@@ -24,4 +24,4 @@ MAIL_USERNAME = None
 MAIL_PASSWORD = None
 
 # Admin list
-ADMINS = ['akosialexpo@gmail.com']
+ADMINS = ['you@example.com']
