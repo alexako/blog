@@ -12,8 +12,14 @@
                 {% if user.last_seen %}
                     <p>Last seen on: {{ user.last_seen }}</p>
                 {% endif %}
+                <p>{{ user.followers.count() }} followers |</p>
                 {% if user.id == g.user.id %}
                     <p><a href="{{ url_for('edit') }}">Edit Profile</a></p>
+                {% endif %}
+                {% elif not g.user.is_following(user) %}
+                    <a href = "{{ url_for('follow', nickname = user.nickname) }}"> Follow</a>
+                {% else %}
+                    <a href = "{{ url_for('unfollow', nickname = user.nickname) }}">Unfollow</a>
                 {% endif %}
             </td>
         </tr>
@@ -22,4 +28,14 @@
     {% for post in posts %}
         {% include "post.html" %}
     {% endfor %}
+    {% if posts.has_prev %}
+        <a href="{{ url_for('user', nickname = user.nickname, page = posts.prev_num) }}"><< Newer posts</a>
+    {% else %}
+        << Newer posts
+    {% endif %}
+    {% if posts.has_next %}
+        <a href="{{ url_for('user', nickname = user.nickname, page = posts.next_num) }}">Older posts >></a>
+    {% else %}
+        Older posts >>
+    {% endif %}
 {% endblock %}

@@ -6,6 +6,9 @@ class LoginForm(Form):
     openid = TextField('openid', validators = [Required()])
     remember_me = BooleanField('remember_me', default = False)
 
+# Post form
+class PostForm(Form):
+    post = TextField('post', validators = [Required()])
 
 # About Me form
 class EditForm(Form):
